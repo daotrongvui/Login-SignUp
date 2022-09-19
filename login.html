@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-web/css/all.min.css"/>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms">
+        <div class="form login">
+          <form action="" method="POST" class="form" id="form-2">
+            <span class="title">Đăng nhập </span>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input id="email-login" onblur="getLoginEmail(email)" name="email" type="text" placeholder="VD: email@gmail.com" class="form-control"/>
+              <span style="color: red" class="form-message mesEmail"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Mật khẩu</label>
+              <input id="password-login" onblur="getLoginPwd(password)" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control"/>
+              <span style="color: red" class="form-message mesPwd"></span>
+            </div>
+            <button id="form-login-submit" onclick="checkLogin(event)" class="form-submit">Đăng nhập</button>
+
+            <div class="login-signup">
+              <span class="text">Chưa có tài khoản?
+                <a href="http://127.0.0.1:5501/signup.html" class="text signup-link">Đăng ký ngay</a>
+              </span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Registration Form -->
+      </div>
+    </div>
+    
+
+
+    <script>
+      
+    </script>
+    <script src="./assets/js/validator.js"></script>
+  </body>
+</html>

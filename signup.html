@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGNUP</title>
+
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-web/css/all.min.css"/>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+
+    
+
+    <!-- MODAL -->
+    <div id="modal-signup" class="modal">
+      <!-- SIGN UP -->
+
+      <div id="login-box" class="login-box modalcontainer" onclick="document.querySelector('modalcontainer')">
+        <div class="left">
+          <form action="" method="POST" class="form" id="form-1">
+            <h1>Đăng ký</h1>
+
+            <div class="form-group">
+              <label for="fullname" class="form-label">Tên đầy đủ</label>
+              <input id="fullname" name="fullname" type="text" placeholder="VD: Đào Trọng Vui" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input id="emailsignup" name="email" type="text" placeholder="VD: email@gmail.com" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Mật khẩu</label>
+              <input id="passwordsignup" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+              <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+            <button id="form-signup-submit" class="form-submit">Đăng ký</button>
+          </form>
+        </div>
+
+        <div class="right">
+          <div class="close">
+            <a href="http://127.0.0.1:5501/login.html" >
+              <button class="btn-close" onclick="myFunctionin()">
+                <i class="fas fa-times"></i>
+              </button>
+            </a>
+          </div>
+
+          <span class="loginwith">Sign in with<br />social network</span>
+
+          <button class="social-signin facebook">Log in with facebook</button>
+          <button class="social-signin twitter">Log in with Twitter</button>
+          <button class="social-signin google">Log in with Google+</button>
+        </div>
+        <div class="or">OR</div>
+      </div>
+
+
+
+    </div>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+        Validator({
+          form: '#form-1',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn' ), // bắt buộc nhập name
+            Validator.isEmail('#emailsignup'),
+            Validator.minLength('#passwordsignup', 6),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#form-1 #passwordsignup').value;
+              }, 'Mật khẩu nhập lại không chính xác'
+            ),
+          ],
+          onSubmit: function (data) {
+            // Call API
+            // console.log(data);
+            alert('Đăng ký thành công!!!!!!')
+            location.assign("http://127.0.0.1:5501/login.html")
+
+          },
+        });
+        
+      });
+    </script>
+    <script src="./assets/js/validator.js"></script>
+  </body>
+</html>

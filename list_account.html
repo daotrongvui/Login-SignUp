@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Accounts</title>
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-web/css/all.min.css"/>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body onload="renderListAccount()">
+    <div class="list-account" id="container-list-account">
+        <h3>Danh sách Account</h3>
+        <table id="list-accounts" width="600px" border="1" cellpadding="0" cellspacing="0">
+          
+        </table>
+    </div>
+
+    <div id="modal-edit" class="modal-edit">
+        <form action="" method="POST" class="form" id="form-3">
+            <h1>Chỉnh sửa</h1>
+
+            <div class="form-group">
+              <label for="fullname" class="form-label">Tên đầy đủ</label>
+              <input id="fullnameedit" name="fullnameedit" type="text" placeholder="VD: Đào Trọng Vui" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input id="emailedit" name="emailedit" type="text" placeholder="VD: email@gmail.com" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Mật khẩu</label>
+              <input id="passwordedit" name="passwordedit" type="password" placeholder="Nhập mật khẩu" class="form-control"/>
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <input id="index" type="hidden"/>
+            </div>
+            <button id="form-edit-submit" class="form-submit">Cập nhật</button>
+          </form>
+    </div>
+
+
+
+      <script src="./assets/js/validator.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Mong muốn của chúng ta
+          Validator({
+            form: '#form-3',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isRequired('#fullnameedit', 'Vui lòng nhập tên đầy đủ của bạn' ), // bắt buộc nhập name
+              Validator.isEmail('#emailedit'),
+              Validator.minLength('#passwordedit', 6),
+            ],
+            onSubmit: function (data) {
+              // Call API
+              changeAccount();
+              console.log(data);
+            },
+          });
+          
+        });
+      </script>
+</body>
+</html>
